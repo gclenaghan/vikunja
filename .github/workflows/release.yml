@@ -10,19 +10,23 @@ jobs:
       - name: Git describe
         id: ghd
         uses: proudust/gh-describe@v2
-      - name: Login to GHCR
+      - name: Login to Docker Hub
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - name: Login to GHCR
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
         with:
           version: latest
-      - name: Setup Docker Builder
-        uses: useblacksmith/setup-docker-builder@78f41686563c732ccc097f7baac2f092f67538f0 # v1
       - name: Docker meta version
         if: ${{ github.ref_type == 'tag' }}
         id: meta
@@ -30,6 +34,7 @@ jobs:
         with:
           images: |
             vikunja/vikunja
+            ghcr.io/go-vikunja/vikunja
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -37,21 +42,27 @@ jobs:
             type=raw,value=latest
       - name: Build and push unstable
         if: ${{ github.ref_type != 'tag' }}
-        uses: useblacksmith/build-push-action@30c71162f16ea2c27c3e21523255d209b8b538c1 # v2
+        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6
         with:
           platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
           push: true
-          tags: vikunja/vikunja:unstable
+          tags: |
+            vikunja/vikunja:unstable
+            ghcr.io/go-vikunja/vikunja:unstable
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           build-args: |
             RELEASE_VERSION=${{ steps.ghd.outputs.describe }}
       - name: Build and push version
         if: ${{ github.ref_type == 'tag' }}
-        uses: useblacksmith/build-push-action@30c71162f16ea2c27c3e21523255d209b8b538c1 # v2
+        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6
         with:
           platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           build-args: |
             RELEASE_VERSION=${{ steps.ghd.outputs.describe }}
 
@@ -235,7 +246,7 @@ jobs:
         with:
           package_json_file: desktop/package.json
       - name: Setup Node
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
         with:
           node-version-file: frontend/.nvmrc
           cache: pnpm
@@ -372,7 +383,7 @@ jobs:
           name: vikunja_desktop_packages_windows-latest
 
       - name: Release
-        uses: softprops/action-gh-release@aec2ec56f94eb8180ceec724245f64ef008b89f5 # v2
+        uses: softprops/action-gh-release@6da8fa9354ddfdc4aeace5fc48d7f679b5214090 # v2
         if: github.ref_type == 'tag'
         with:
           draft: true
