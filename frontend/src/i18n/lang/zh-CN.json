@@ -877,6 +877,7 @@
 			"every30d": "每 30 天",
 			"mode": "重复模式",
 			"monthly": "每月",
+			"annually": "每年",
 			"each": "每个",
 			"specifyAmount": "指定数量…",
 			"hours": "小时",

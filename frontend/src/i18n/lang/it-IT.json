@@ -976,6 +976,7 @@
 			"every30d": "Ogni 30 giorni",
 			"mode": "Modalità ripetizione",
 			"monthly": "Ogni mese",
+			"annually": "Annualmente",
 			"fromCurrentDate": "Dal completamento",
 			"each": "Ogni",
 			"specifyAmount": "Specifica una quantità…",

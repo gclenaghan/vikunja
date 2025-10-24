@@ -983,6 +983,7 @@
 			"every30d": "Hver 30. dag",
 			"mode": "Gjenta",
 			"monthly": "Månedlig",
+			"annually": "Årlig",
 			"fromCurrentDate": "Fra fullføringsdato",
 			"each": "Hver",
 			"specifyAmount": "Angi verdi…",

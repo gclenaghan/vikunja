@@ -877,6 +877,7 @@
 			"every30d": "30 naponta",
 			"mode": "Ismétlés típusa",
 			"monthly": "Havi",
+			"annually": "Évente",
 			"each": "Minden egyes",
 			"specifyAmount": "Adja meg a mennyiséget…",
 			"hours": "Órák",

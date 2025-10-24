@@ -897,6 +897,7 @@
 			"every30d": "Co 30 dni",
 			"mode": "Tryb powtarzania",
 			"monthly": "Miesięczny",
+			"annually": "Rocznie",
 			"fromCurrentDate": "Od daty zakończenia",
 			"each": "Co",
 			"specifyAmount": "Określ ilość…",

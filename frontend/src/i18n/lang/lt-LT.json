@@ -931,6 +931,7 @@
 			"every30d": "Kas 30 dienų",
 			"mode": "Kartojimo rėžimas",
 			"monthly": "Kas mėnesį",
+			"annually": "Kasmet",
 			"fromCurrentDate": "Nuo užbaigimo datos",
 			"each": "Kiekvienas",
 			"specifyAmount": "Nurodyti skaičių…",

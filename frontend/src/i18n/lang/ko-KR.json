@@ -934,6 +934,7 @@
 			"every30d": "30일마다",
 			"mode": "반복 모드",
 			"monthly": "매달",
+			"annually": "매년",
 			"fromCurrentDate": "완료일로부터",
 			"each": "각각",
 			"specifyAmount": "금액 지정...",

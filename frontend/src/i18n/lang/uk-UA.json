@@ -919,6 +919,7 @@
 			"every30d": "Щомісяця",
 			"mode": "Спосіб",
 			"monthly": "Щомісяця",
+			"annually": "Щорічно",
 			"fromCurrentDate": "Щодень закінчення",
 			"each": "Що",
 			"specifyAmount": "Вкажіть величину…",

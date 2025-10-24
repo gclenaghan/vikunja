@@ -835,6 +835,7 @@
 			"every30d": "30 päivän välein",
 			"mode": "Toistotila",
 			"monthly": "Kuukausittain",
+			"annually": "Vuosittain",
 			"fromCurrentDate": "Valmistumispäivästä alkaen",
 			"each": "Väli",
 			"specifyAmount": "Anna määrä…",

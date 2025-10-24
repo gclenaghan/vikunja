@@ -924,6 +924,7 @@
 			"every30d": "Vsakih 30 dni",
 			"mode": "Način ponavljanja",
 			"monthly": "Mesečno",
+			"annually": "Letno",
 			"fromCurrentDate": "Od datuma dokončanja",
 			"each": "Vsak",
 			"specifyAmount": "Določi znesek…",

@@ -764,6 +764,7 @@
 		},
 		"repeat": {
 			"monthly": "Mjesečno",
+			"annually": "Godišnje",
 			"fromCurrentDate": "Od datuma završetka",
 			"each": "Svaki",
 			"specifyAmount": "Navedite iznos…",

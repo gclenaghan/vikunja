@@ -988,6 +988,7 @@
 			"every30d": "A cada 30 Dias",
 			"mode": "Modo de repetição",
 			"monthly": "Mensal",
+			"annually": "Anualmente",
 			"fromCurrentDate": "Da data de conclusão",
 			"each": "Cada",
 			"specifyAmount": "Especifica uma quantidade…",

@@ -988,6 +988,7 @@
 			"every30d": "30日ごと",
 			"mode": "繰り返しモード",
 			"monthly": "毎月",
+			"annually": "毎年",
 			"fromCurrentDate": "完了からの間隔",
 			"specifyAmount": "数字を入力…",
 			"hours": "時間ごと",
